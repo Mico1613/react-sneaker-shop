@@ -12,11 +12,10 @@ const StyledSvgFavourites = styled.svg.attrs({
 })`
   cursor: pointer;
   &:hover {
-    stroke: red;
-    fill: red;
+    fill: #808080;
   }
   &:active {
-    stroke: green;
+    fill: #666666;
   }
 `;
 

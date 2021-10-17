@@ -10,7 +10,6 @@ export const StyledMain = styled.main`
   height: 100%;
   background: #fff;
   border-radius: 20px;
-  padding: 45px;
 `;
 
 function Main({ children }: Props): ReactElement {

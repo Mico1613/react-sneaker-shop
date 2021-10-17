@@ -12,12 +12,10 @@ const StyledSvgPurchases = styled.svg.attrs({
 })`
   cursor: pointer;
   &:hover {
-    stroke: red;
-    fill: red;
+    fill: #808080;
   }
   &:active {
-    fill: green;
-    stroke: green;
+    fill: #666666;
   }
 `;
 

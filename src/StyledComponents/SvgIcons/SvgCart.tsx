@@ -13,10 +13,10 @@ const StyledSvgCart = styled.svg.attrs({
 })`
   cursor: pointer;
   &:hover {
-    stroke: red;
+    stroke: #808080;
   }
   &:active {
-    fill: green;
+    stroke: #666666;
   }
 `;
 

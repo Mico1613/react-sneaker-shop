@@ -13,6 +13,7 @@ interface Props {
   marginLeft?: string | number;
   lineHeight?: string | number;
   transform?: string;
+  usn?: boolean;
 }
 
 const StyledText = styled.p<Props>`
@@ -21,10 +22,11 @@ const StyledText = styled.p<Props>`
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
   color: ${({ color }) => color || "#000"};
   line-height: ${({ lineHeight }) => lineHeight + "px" || "0"};
-  margin-left: ${({ marginLeft }) => marginLeft + "px" || "0"};
-  margin-top: ${({ marginTop }) => marginTop + "px" || "0"};
-  margin-right: ${({ marginRight }) => marginRight + "px" || "0"};
-  margin-bottom: ${({ marginBottom }) => marginBottom + "px" || "0"};
+  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px")|| "0"};
+  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || "0"};
+  margin-right: ${({ marginRight }) => (marginRight && marginRight + "px") || "0"};
+  margin-bottom: ${({ marginBottom }) => (marginBottom && marginBottom + "px") || "0"};
+  user-select: ${({ usn }) => usn && "none"};
 `;
 
 function Text(props: Props): ReactElement {
