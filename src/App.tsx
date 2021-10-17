@@ -5,7 +5,6 @@ import PurchasesPage from "./Pages/PurchasesPage";
 import AppWrapper from "./StyledComponents/AppWrapper";
 import { Route, Switch } from "react-router-dom";
 import Error from "./Pages/Error";
-import Main from "./StyledComponents/Main";
 
 // https://61606764faa03600179fba4e.mockapi.io/sneakers
 
