@@ -8,6 +8,8 @@ interface Props {}
 
 const StyledHeader = styled.header`
   padding: 45px;
+  user-select: none;
+  text-align: center;
 `;
 
 const StyledHr = styled.hr`

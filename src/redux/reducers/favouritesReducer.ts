@@ -1,10 +1,10 @@
-interface favouritesState {}
+interface IFavourites {}
 
-const initialState: favouritesState = {};
+const initialState: IFavourites = {};
 
-export default (state = initialState, { type, payload }: any): favouritesState => {
+export default (state = initialState, { type, payload }: any): IFavourites => {
   switch (type) {
-    case "qwe":
+    case "rt":
       return { ...state, ...payload };
 
     default:

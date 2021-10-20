@@ -11,6 +11,7 @@ const StyledSvgFavourites = styled.svg.attrs({
   xmlns: "http://www.w3.org/2000/svg",
 })`
   cursor: pointer;
+  user-select: none;
   &:hover {
     fill: #808080;
   }

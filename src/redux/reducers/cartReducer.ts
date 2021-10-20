@@ -1,10 +1,10 @@
-interface cartState {}
+interface ICart {}
 
-const initialState: cartState = {};
+const initialState: ICart = {};
 
-export default (state = initialState, { type, payload }:any): cartState => {
+export default (state = initialState, { type, payload }:any): ICart => {
   switch (type) {
-    case 'qwe':
+    case 'yu':
       return { ...state, ...payload };
 
     default:

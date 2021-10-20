@@ -10,6 +10,7 @@ const StyledAppWrapper = styled.div`
   background: #e7f6ff;
   min-height: 100vh;
   width: 100%;
+  overflow: hidden;
 `;
 
 function AppWrapper({ children }: Props): ReactElement {

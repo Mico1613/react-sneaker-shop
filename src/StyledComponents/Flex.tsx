@@ -18,12 +18,14 @@ const StyledFlex = styled.div<Props>`
   display: flex;
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "start"};
-  align-items: ${({ align }) =>  align || "flex-start"};
+  align-items: ${({ align }) => align || "flex-start"};
   margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px") || "0"};
   margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || "0"};
-  margin-right: ${({ marginRight }) => (marginRight && marginRight + "px") || "0"};
-  margin-bottom: ${({ marginBottom }) => (marginBottom && marginBottom + "px") || "0"};
-  gap: ${({ gap }) => gap && gap + "px" || "0"};
+  margin-right: ${({ marginRight }) =>
+    (marginRight && marginRight + "px") || "0"};
+  margin-bottom: ${({ marginBottom }) =>
+    (marginBottom && marginBottom + "px") || "0"};
+  gap: ${({ gap }) => (gap && gap + "px") || "0"};
   user-select: ${({ usn }) => usn && "none"};
 `;
 
