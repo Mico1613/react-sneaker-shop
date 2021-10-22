@@ -6,10 +6,12 @@ interface Props {
 }
 
 export const StyledMain = styled.main`
+  max-width: 1080px;
   width: 100%;
   height: 100%;
   background: #fff;
   border-radius: 20px;
+  margin: 0 auto;
 `;
 
 function Main({ children }: Props): ReactElement {

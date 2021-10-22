@@ -1,5 +1,5 @@
 import { IGoodsData } from "../../types";
-import { ActionsGoods } from "../../types/goodsActions";
+import { ActionsGoods } from "../../types/goodsActionsTypes";
 
 interface IGoods {
   goods: IGoodsData[];

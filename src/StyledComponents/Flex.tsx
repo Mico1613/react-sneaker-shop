@@ -12,6 +12,7 @@ interface Props {
   marginLeft?: string | number;
   gap?: string | number;
   usn?: boolean;
+  background?: string;
 }
 
 const StyledFlex = styled.div<Props>`
@@ -19,14 +20,15 @@ const StyledFlex = styled.div<Props>`
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "start"};
   align-items: ${({ align }) => align || "flex-start"};
-  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px") || "0"};
-  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || "0"};
+  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px") || ""};
+  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || ""};
   margin-right: ${({ marginRight }) =>
-    (marginRight && marginRight + "px") || "0"};
+    (marginRight && marginRight + "px") || ""};
   margin-bottom: ${({ marginBottom }) =>
-    (marginBottom && marginBottom + "px") || "0"};
-  gap: ${({ gap }) => (gap && gap + "px") || "0"};
+    (marginBottom && marginBottom + "px") || ""};
+  gap: ${({ gap }) => (gap && gap + "px") || ""};
   user-select: ${({ usn }) => usn && "none"};
+  background: ${({background }) => background || ''}
 `;
 
 function Flex(props: Props): ReactElement {

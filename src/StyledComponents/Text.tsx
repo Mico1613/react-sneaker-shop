@@ -21,11 +21,11 @@ const StyledText = styled.p<Props>`
   font-size: ${({ fontSize }) => fontSize || "1rem"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
   color: ${({ color }) => color || "#000"};
-  line-height: ${({ lineHeight }) => lineHeight + "px" || "0"};
-  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px")|| "0"};
-  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || "0"};
-  margin-right: ${({ marginRight }) => (marginRight && marginRight + "px") || "0"};
-  margin-bottom: ${({ marginBottom }) => (marginBottom && marginBottom + "px") || "0"};
+  line-height: ${({ lineHeight }) => (lineHeight && lineHeight + "px") || "1rem"};
+  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px")|| ""};
+  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || ""};
+  margin-right: ${({ marginRight }) => (marginRight && marginRight + "px") || ""};
+  margin-bottom: ${({ marginBottom }) => (marginBottom && marginBottom + "px") || ""};
   user-select: ${({ usn }) => usn && "none"};
 `;
 
