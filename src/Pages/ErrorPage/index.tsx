@@ -16,7 +16,7 @@ const StyledError = styled(StyledMain)`
   user-select: none;
 `;
 
-function Error({}: Props): ReactElement {
+function ErrorPage({}: Props): ReactElement {
   return (
     <StyledError>
       404
@@ -25,4 +25,4 @@ function Error({}: Props): ReactElement {
   );
 }
 
-export default Error;
+export default ErrorPage;

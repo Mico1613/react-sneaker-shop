@@ -4,7 +4,7 @@ import MainPage from "./Pages/MainPage";
 import PurchasesPage from "./Pages/PurchasesPage";
 import AppWrapper from "./StyledComponents/AppWrapper";
 import { Route, Switch } from "react-router-dom";
-import Error from "./Pages/Error";
+import Error from "./Pages/ErrorPage";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { fetchAllGoods } from "./redux/actions/goodsAction";
 
