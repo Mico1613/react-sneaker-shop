@@ -1,20 +1,9 @@
 import React, { ReactElement } from "react";
-import styled from "styled-components";
-import { StyledMain } from "../../StyledComponents/Main";
+import { StyledError } from "../../StyledComponents/ErrorPageComponent";
 
 interface Props {}
 
-const StyledError = styled(StyledMain)`
-  font-size: 48px;
-  font-weight: bold;
-  height: calc(100vh - 170px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 1.5;
-  user-select: none;
-`;
+
 
 function ErrorPage({}: Props): ReactElement {
   return (

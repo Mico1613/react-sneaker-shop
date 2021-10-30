@@ -18,6 +18,7 @@ function App(): ReactElement {
   React.useEffect(() => {
     dispatch(fetchAllGoods());
   }, []);
+  
   return (
     <AppWrapper>
       <Switch>

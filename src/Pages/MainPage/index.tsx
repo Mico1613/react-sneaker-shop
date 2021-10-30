@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import Header from "../../Components/Header";
+import SneakersBlock from "../../Components/SneakersBlock";
 import StoriesBlock from "../../Components/StoriesBlock";
 import Container from "../../StyledComponents/Container";
 import Flex from "../../StyledComponents/Flex";
@@ -12,9 +13,8 @@ function MainPage({}: Props): ReactElement {
     <Main>
       <Header />
       <Container>
-        <Flex direction="column" align="center">
-          <StoriesBlock />
-        </Flex>
+        <StoriesBlock />
+        <SneakersBlock />
       </Container>
     </Main>
   );

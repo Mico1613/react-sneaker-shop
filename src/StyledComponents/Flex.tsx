@@ -13,6 +13,11 @@ interface Props {
   gap?: string | number;
   usn?: boolean;
   background?: string;
+  border?: string;
+  padding?: string;
+  radius?: string;
+  cursor?: string;
+  onClick?: () => void;
 }
 
 const StyledFlex = styled.div<Props>`
@@ -28,11 +33,19 @@ const StyledFlex = styled.div<Props>`
     (marginBottom && marginBottom + "px") || ""};
   gap: ${({ gap }) => (gap && gap + "px") || ""};
   user-select: ${({ usn }) => usn && "none"};
-  background: ${({background }) => background || ''}
+  background: ${({ background }) => background || ""};
+  border: ${({ border }) => border || ""};
+  padding: ${({ padding }) => padding || ""};
+  border-radius: ${({ radius }) => radius || ""};
+  cursor: ${({ cursor }) => cursor || ""};
 `;
 
 function Flex(props: Props): ReactElement {
-  return <StyledFlex {...props}>{props.children}</StyledFlex>;
+  return (
+    <StyledFlex {...props} onClick={props.onClick}>
+      {props.children}
+    </StyledFlex>
+  );
 }
 
 export default Flex;

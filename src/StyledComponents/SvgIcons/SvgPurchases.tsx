@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 
-interface Props {}
+
 
 const StyledSvgPurchases = styled.svg.attrs({
   width: "20",
@@ -20,7 +20,7 @@ const StyledSvgPurchases = styled.svg.attrs({
   }
 `;
 
-function SvgPurchases({}: Props): ReactElement {
+function SvgPurchases(): ReactElement {
   return (
     <StyledSvgPurchases>
       <path

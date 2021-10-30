@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import styled from "styled-components";
 
-interface Props {}
+
 
 const StyledSvgCart = styled.svg.attrs({
   width: "20",
@@ -21,7 +21,7 @@ const StyledSvgCart = styled.svg.attrs({
   }
 `;
 
-function SvgCart({}: Props): ReactElement {
+function SvgCart(): ReactElement {
   return (
     <StyledSvgCart>
       <path
