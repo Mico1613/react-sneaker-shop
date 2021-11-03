@@ -1,15 +1,20 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement } from "react";
+import { useAppSelector } from "../../../redux/hooks";
+import Flex from "../../../StyledComponents/Flex";
+import { IGoodsData } from "../../../types";
+import Sneaker from "../Sneaker";
 
-interface Props {
-    
-}
+interface Props {}
 
 function SneakersItems({}: Props): ReactElement {
-    return (
-        <div>
-            SneakersItems
-        </div>
-    )
+  const { goods } = useAppSelector((state) => state.goodsReducer);
+  return (
+    <Flex wrap="wrap" justify="space-between" rowGap="40">
+      {goods.map((sneakerItem: IGoodsData) => (
+        <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />
+      ))}
+    </Flex>
+  );
 }
 
-export default SneakersItems
+export default SneakersItems;

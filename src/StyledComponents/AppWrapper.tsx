@@ -11,6 +11,9 @@ const StyledAppWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
+  @media screen and (max-width: 768px) {
+    padding: 35px;
+  }
 `;
 
 function AppWrapper({ children }: Props): ReactElement {

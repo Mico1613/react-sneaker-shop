@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
-import Flex from "../../StyledComponents/Flex";
-import Text from "../../StyledComponents/Text";
-import LogoImage from "../../assets/logo.png";
+import Flex from "../../../StyledComponents/Flex";
+import Text from "../../../StyledComponents/Text";
+import LogoImage from "../../../assets/logo.png";
 interface Props {}
 
 function Logo({}: Props): ReactElement {

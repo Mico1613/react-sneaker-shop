@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface Props {
   children?: any;
+  width?: string | number;
   direction?: string;
   justify?: string;
   align?: string;
@@ -11,17 +12,20 @@ interface Props {
   marginBottom?: string | number;
   marginLeft?: string | number;
   gap?: string | number;
-  usn?: boolean;
+  rowGap?: string | number;
   background?: string;
   border?: string;
   padding?: string;
   radius?: string;
   cursor?: string;
+  usn?: boolean;
+  wrap?: string;
   onClick?: () => void;
 }
 
 const StyledFlex = styled.div<Props>`
   display: flex;
+  width:${({width}) => width || ""};
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "start"};
   align-items: ${({ align }) => align || "flex-start"};
@@ -32,12 +36,14 @@ const StyledFlex = styled.div<Props>`
   margin-bottom: ${({ marginBottom }) =>
     (marginBottom && marginBottom + "px") || ""};
   gap: ${({ gap }) => (gap && gap + "px") || ""};
-  user-select: ${({ usn }) => usn && "none"};
+  row-gap: ${({ rowGap }) => (rowGap && rowGap + "px") || ""};
   background: ${({ background }) => background || ""};
   border: ${({ border }) => border || ""};
   padding: ${({ padding }) => padding || ""};
   border-radius: ${({ radius }) => radius || ""};
   cursor: ${({ cursor }) => cursor || ""};
+  flex-wrap: ${({ wrap }) => wrap || ""};
+  user-select: ${({ usn }) => usn && "none"};
 `;
 
 function Flex(props: Props): ReactElement {

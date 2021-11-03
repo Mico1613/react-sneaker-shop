@@ -1,9 +1,8 @@
 import React, { ReactElement } from "react";
-import styled from "styled-components";
 import Flex from "../../StyledComponents/Flex";
 import { StyledHeader, StyledHr } from "../../StyledComponents/HeaderComponent";
-import Logo from "../Logo";
-import Menu from "../Menu";
+import Logo from "./Logo";
+import Menu from "./Menu";
 
 interface Props {}
 
