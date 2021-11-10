@@ -20,12 +20,17 @@ interface Props {
   cursor?: string;
   usn?: boolean;
   wrap?: string;
+  position?: string;
+  left?: string;
+  right?: string;
+  top?: string;
+  bottom?: string;
   onClick?: () => void;
 }
 
 const StyledFlex = styled.div<Props>`
   display: flex;
-  width:${({width}) => width || ""};
+  width: ${({ width }) => width || ""};
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "start"};
   align-items: ${({ align }) => align || "flex-start"};
@@ -44,6 +49,11 @@ const StyledFlex = styled.div<Props>`
   cursor: ${({ cursor }) => cursor || ""};
   flex-wrap: ${({ wrap }) => wrap || ""};
   user-select: ${({ usn }) => usn && "none"};
+  position: ${({ position }) => position || "static"};
+  left: ${({ left }) => left || "auto"};
+  right: ${({ right }) => right || "auto"};
+  top: ${({ top }) => top || "auto"};
+  bottom: ${({ bottom }) => bottom || "auto"};
 `;
 
 function Flex(props: Props): ReactElement {
