@@ -10,13 +10,11 @@ interface Props {}
 
 function MainPage({}: Props): ReactElement {
   return (
-    <Main>
-      <Header />
       <Container>
         <StoriesBlock />
         <SneakersBlock />
       </Container>
-    </Main>
+
   );
 }
 

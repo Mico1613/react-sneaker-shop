@@ -1,16 +1,13 @@
-import React, { ReactElement } from 'react'
-import Main from '../../StyledComponents/Main'
+import React, { ReactElement } from "react";
+import Header from "../../Components/Header";
+import Main from "../../StyledComponents/Main";
 
-interface Props {
-    
-}
+interface Props {}
 
 function PurchasesPage({}: Props): ReactElement {
-    return (
-        <Main>
-           PurchasesPage 
-        </Main>
-    )
+  return (
+    <div>123</div>
+  );
 }
 
-export default PurchasesPage
+export default PurchasesPage;

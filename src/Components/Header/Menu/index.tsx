@@ -4,6 +4,7 @@ import SvgCart from "../../../StyledComponents/SvgIcons/SvgCart";
 import SvgFavourites from "../../../StyledComponents/SvgIcons/SvgFavourites";
 import SvgPurchases from "../../../StyledComponents/SvgIcons/SvgPurchases";
 import Text from "../../../StyledComponents/Text";
+import { Link } from "react-router-dom";
 
 interface Props {}
 
@@ -12,10 +13,16 @@ function Menu(props: Props): ReactElement {
     <Flex justify="space-between" gap="30">
       <Flex align="center" gap={10}>
         <SvgCart />
-        <Text color='#5C5C5C' fontWeight="600">{1205} руб.</Text>
+        <Text color="#5C5C5C" fontWeight="600">
+          {1205} руб.
+        </Text>
       </Flex>
-      <SvgFavourites />
-      <SvgPurchases />
+      <Link to="favourites">
+        <SvgFavourites />
+      </Link>
+      <Link to="purchases">
+        <SvgPurchases />
+      </Link>
     </Flex>
   );
 }

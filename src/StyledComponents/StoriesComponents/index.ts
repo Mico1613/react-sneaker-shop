@@ -28,7 +28,7 @@ export const StoriesStyledBackgroundImg = styled.div`
   border-radius: 0px 20px 20px 0px;
 `;
 export const StoriesFirstLineText = styled(Text)`
-  color: #8BB43C;
+  color: #8bb43c;
   font-weight: bold;
   font-size: 38px;
   line-height: 46px;
@@ -47,6 +47,7 @@ export const StoriesSecondLineText = styled(Text)`
 export const StoriesStyledA = styled.a.attrs({
   href: "https://sneakerstudio.ru/product-rus-1021688-%D0%9A%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8-adidas-Originals-x-Disney-Stan-Smith-Kermit-FX5550-264.html?gclid=Cj0KCQjw8eOLBhC1ARIsAOzx5cG8iue_B-ecywuzNcZEA3DAymDiKXpyeu3PmNsp-L5WcgmmV-yYcxgaAs2xEALw_wcB",
   target: "_blank",
+  rel: "noreferrer",
 })`
   display: block;
   line-height: 3rem;

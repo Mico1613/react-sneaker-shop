@@ -1,16 +1,11 @@
-import React, { ReactElement } from 'react'
-import Main from '../../StyledComponents/Main'
+import React, { ReactElement } from "react";
+import Header from "../../Components/Header";
+import Main from "../../StyledComponents/Main";
 
-interface Props {
-    
-}
+interface Props {}
 
 function FavouritesPage({}: Props): ReactElement {
-    return (
-        <Main>
-            FavouritesPage
-        </Main>
-    )
+  return <div>123</div>;
 }
 
-export default FavouritesPage
+export default FavouritesPage;
