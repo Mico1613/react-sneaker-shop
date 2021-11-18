@@ -17,7 +17,7 @@ function StoriesBlock({}: Props): ReactElement {
   return (
     <StoriesStyledFlex>
       <StoriesStyledTextBlockWrapper>
-        <Flex marginLeft={-40} marginBottom={35}>
+        <Flex ml={-40} mb={35}>
           <div>
             <img src={logo} alt="#logo" />
           </div>

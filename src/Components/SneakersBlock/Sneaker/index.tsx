@@ -36,7 +36,7 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
       >
         <img src={liked ? likedImg : notLikedImg} alt="#" />
       </Flex>
-      <Flex marginBottom={15}>
+      <Flex mb={15}>
         <img width="130px" height="110px" src={imageUrl} alt="#" />
       </Flex>
 

@@ -6,7 +6,7 @@ import Search from "../Search";
 function SneakersHeader(): ReactElement {
   return (
     <>
-      <Flex justify="space-between" align="center" marginBottom='40'>
+      <Flex justify="space-between" align="center" mb="40">
         <Text fontWeight="bold" fontSize="32px" lineHeight="39px">
           Все кроссовки
         </Text>

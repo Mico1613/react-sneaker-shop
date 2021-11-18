@@ -8,7 +8,7 @@ function Logo({}: Props): ReactElement {
   return (
     <Flex align="center" justify="space-between" usn>
       <img src={LogoImage} width="40px" height="40px" alt="#logo" />
-      <Flex direction="column" marginLeft={15}>
+      <Flex direction="column" ml={15}>
         <Text
           as="h1"
           fontSize="20px"

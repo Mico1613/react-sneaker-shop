@@ -4,13 +4,14 @@ import styled from "styled-components";
 interface Props {
   children?: any;
   width?: string | number;
+  height?: string | number;
   direction?: string;
   justify?: string;
   align?: string;
-  marginTop?: string | number;
-  marginRight?: string | number;
-  marginBottom?: string | number;
-  marginLeft?: string | number;
+  mt?: string | number;
+  mr?: string | number;
+  mb?: string | number;
+  ml?: string | number;
   gap?: string | number;
   rowGap?: string | number;
   background?: string;
@@ -31,15 +32,14 @@ interface Props {
 const StyledFlex = styled.div<Props>`
   display: flex;
   width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || ""};
   flex-direction: ${({ direction }) => direction || "row"};
   justify-content: ${({ justify }) => justify || "start"};
   align-items: ${({ align }) => align || "flex-start"};
-  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px") || ""};
-  margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || ""};
-  margin-right: ${({ marginRight }) =>
-    (marginRight && marginRight + "px") || ""};
-  margin-bottom: ${({ marginBottom }) =>
-    (marginBottom && marginBottom + "px") || ""};
+  margin-left: ${({ ml }) => (ml && ml + "px") || ""};
+  margin-top: ${({ mt }) => (mt && mt + "px") || ""};
+  margin-right: ${({ mr }) => (mr && mr + "px") || ""};
+  margin-bottom: ${({ mb }) => (mb && mb + "px") || ""};
   gap: ${({ gap }) => (gap && gap + "px") || ""};
   row-gap: ${({ rowGap }) => (rowGap && rowGap + "px") || ""};
   background: ${({ background }) => background || ""};
