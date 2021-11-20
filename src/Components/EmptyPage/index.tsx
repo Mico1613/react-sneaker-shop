@@ -3,6 +3,7 @@ import Flex from "../../StyledComponents/Flex";
 import Text from "../../StyledComponents/Text";
 import arrow from "../../assets/arrow.png";
 import Button from "../../StyledComponents/Button";
+import { Link } from "react-router-dom";
 
 interface Props {
   subtext: string;
@@ -38,20 +39,22 @@ function EmptyPage({ subtext, suptext, imgUrl }: Props): ReactElement {
         >
           {subtext}
         </Text>
-        <Button bgc="#9DD458" radius="18px" padding="20px 35px">
-          <Flex justify="center" align="center">
-            <img src={arrow} alt="#" />
-            <Text
-              fontSize="16px"
-              fontWeight="600"
-              lineHeight="20"
-              color="white"
-              marginLeft="15"
-            >
-              Вернуться назад
-            </Text>
-          </Flex>
-        </Button>
+        <Link to="/">
+          <Button bgc="#9DD458" radius="18px" padding="20px 35px">
+            <Flex justify="center" align="center">
+              <img src={arrow} alt="#" />
+              <Text
+                fontSize="16px"
+                fontWeight="600"
+                lineHeight="20"
+                color="white"
+                marginLeft="15"
+              >
+                Вернуться назад
+              </Text>
+            </Flex>
+          </Button>{" "}
+        </Link>
       </Flex>
     </Flex>
   );
