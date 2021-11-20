@@ -5,6 +5,7 @@ import Container from "../../StyledComponents/Container";
 import Flex from "../../StyledComponents/Flex";
 import SvgBack from "../../StyledComponents/SvgIcons/SvgBack";
 import Text from "../../StyledComponents/Text";
+import pic from '../../assets/smile_2.png'
 
 interface Props {}
 
@@ -35,7 +36,7 @@ function FavouritesPage({}: Props): ReactElement {
         <EmptyPage
           suptext="Закладок нет:("
           subtext="Вы ничего не добавляли в закладки"
-          imgUrl=""
+          imgUrl={pic}
         />
       )}
     </>

@@ -7,6 +7,7 @@ interface Props {
   radius?: string;
   padding?: string;
   margin?: string;
+  onClick?: any;
 }
 
 const StyledButton = styled.button<Props>`
@@ -17,7 +18,7 @@ const StyledButton = styled.button<Props>`
 `;
 
 function Button(props: Props): ReactElement {
-  return <StyledButton {...props}>{props.children}</StyledButton>;
+  return <StyledButton {...props} onClick={props.onClick}>{props.children}</StyledButton>;
 }
 
 export default Button;

@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import Flex from "../../StyledComponents/Flex";
 import Text from "../../StyledComponents/Text";
 import arrow from "../../assets/arrow.png";
+import Button from "../../StyledComponents/Button";
 
 interface Props {
   subtext: string;
@@ -17,27 +18,40 @@ function EmptyPage({ subtext, suptext, imgUrl }: Props): ReactElement {
       align="center"
       justify="center"
     >
-      <Flex direction="column">
+      <Flex direction="column" align="center">
         <img src={imgUrl} alt="#" />
-        <Text fontSize="24px" fontWeight="600" lineHeight="29px">
+        <Text
+          fontSize="24px"
+          fontWeight="600"
+          lineHeight="29"
+          marginTop="20"
+          marginBottom="10"
+        >
           {suptext}
         </Text>
-        <Text fontSize="16px" lineHeight="24px" fontWeight="400">
+        <Text
+          fontSize="16px"
+          lineHeight="24"
+          fontWeight="400"
+          marginBottom="50"
+          opacity={0.4}
+        >
           {subtext}
         </Text>
-        <button>
-          <Flex>
+        <Button bgc="#9DD458" radius="18px" padding="20px 35px">
+          <Flex justify="center" align="center">
             <img src={arrow} alt="#" />
             <Text
               fontSize="16px"
               fontWeight="600"
-              lineHeight="20px"
+              lineHeight="20"
               color="white"
+              marginLeft="15"
             >
               Вернуться назад
             </Text>
           </Flex>
-        </button>
+        </Button>
       </Flex>
     </Flex>
   );

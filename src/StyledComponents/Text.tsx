@@ -14,6 +14,7 @@ interface Props {
   lineHeight?: string | number;
   transform?: string;
   usn?: boolean;
+  opacity?: number;
 }
 
 const StyledText = styled.p<Props>`
@@ -21,12 +22,16 @@ const StyledText = styled.p<Props>`
   font-size: ${({ fontSize }) => fontSize || "1rem"};
   font-weight: ${({ fontWeight }) => fontWeight || "400"};
   color: ${({ color }) => color || "#000"};
-  line-height: ${({ lineHeight }) => (lineHeight && lineHeight + "px") || "1rem"};
-  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px")|| ""};
+  line-height: ${({ lineHeight }) =>
+    (lineHeight && lineHeight + "px") || "1rem"};
+  margin-left: ${({ marginLeft }) => (marginLeft && marginLeft + "px") || ""};
   margin-top: ${({ marginTop }) => (marginTop && marginTop + "px") || ""};
-  margin-right: ${({ marginRight }) => (marginRight && marginRight + "px") || ""};
-  margin-bottom: ${({ marginBottom }) => (marginBottom && marginBottom + "px") || ""};
+  margin-right: ${({ marginRight }) =>
+    (marginRight && marginRight + "px") || ""};
+  margin-bottom: ${({ marginBottom }) =>
+    (marginBottom && marginBottom + "px") || ""};
   user-select: ${({ usn }) => usn && "none"};
+  opacity: ${({ opacity }) => opacity || 1};
 `;
 
 function Text(props: Props): ReactElement {
