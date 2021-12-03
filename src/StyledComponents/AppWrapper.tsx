@@ -9,7 +9,6 @@ const StyledAppWrapper = styled.div`
   padding: 85px;
   background: #e7f6ff;
   min-height: 100vh;
-  
   overflow: hidden;
   @media screen and (max-width: 768px) {
     padding: 35px;
