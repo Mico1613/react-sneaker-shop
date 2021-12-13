@@ -9,30 +9,31 @@ import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { fetchAllGoods } from "./redux/actions/goodsAction";
 import Header from "./Components/Header";
 import Main from "./StyledComponents/Main";
+import OpenedCart from "./Components/OpenedCart";
 
 function App(): ReactElement {
   const dispatch = useAppDispatch();
-  const { goods, isLoading, errorMessage } = useAppSelector(
-    (state) => state.goodsReducer
-  );
-  console.log(goods, isLoading, errorMessage);
+  const { isCartOpened } = useAppSelector((state) => state.cartReducer);
 
   React.useEffect(() => {
     dispatch(fetchAllGoods());
   }, []);
 
   return (
-    <AppWrapper>
-      <Main>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Route exact path="/purchases" component={PurchasesPage} />
-          <Route exact path="/favourites" component={FavouritesPage} />
-          <Route path="" component={Error} />
-        </Switch>
-      </Main>
-    </AppWrapper>
+    <>
+      {isCartOpened ? <OpenedCart /> : null}
+      <AppWrapper>
+        <Main>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={MainPage} />
+            <Route exact path="/purchases" component={PurchasesPage} />
+            <Route exact path="/favourites" component={FavouritesPage} />
+            <Route path="" component={Error} />
+          </Switch>
+        </Main>
+      </AppWrapper>
+    </>
   );
 }
 

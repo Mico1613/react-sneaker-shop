@@ -1,12 +1,17 @@
-interface ICart {}
+import { ActionsCart } from "../../types/cartActionsTypes";
 
-const initialState: ICart = {};
+interface ICart {
+  isCartOpened: boolean;
+}
 
-export default (state = initialState, { type, payload }:any): ICart => {
-  switch (type) {
-    case 'yu':
-      return { ...state, ...payload };
+const initialState: ICart = {
+  isCartOpened: false,
+};
 
+export default (state = initialState, action: ActionsCart): ICart => {
+  switch (action.type) {
+    case "ON_OPEN_CART":
+      return { ...state, isCartOpened: true };
     default:
       return state;
   }
