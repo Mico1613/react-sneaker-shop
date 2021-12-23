@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
+
 const Global = createGlobalStyle`
 * {padding: 0; margin: 0; border: 0; font-family: 'Inter', sans-serif;}
 *,*:before,*:after {-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;}

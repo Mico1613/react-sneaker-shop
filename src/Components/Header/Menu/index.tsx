@@ -12,8 +12,6 @@ import { onOpenCart } from "../../../redux/actions/cartActions";
 interface Props {}
 
 function Menu(props: Props): ReactElement {
-  const state = useAppSelector((state) => state.cartReducer);
-  console.log(state);
   const dispatch = useAppDispatch();
   const onOpenCartClick = () => {
     dispatch(onOpenCart);

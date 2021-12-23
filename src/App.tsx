@@ -10,10 +10,11 @@ import { fetchAllGoods } from "./redux/actions/goodsAction";
 import Header from "./Components/Header";
 import Main from "./StyledComponents/Main";
 import OpenedCart from "./Components/OpenedCart";
+import { OpenedCartStyles } from "./utils/openedCartStyles";
 
 function App(): ReactElement {
   const dispatch = useAppDispatch();
-  const { isCartOpened } = useAppSelector((state) => state.cartReducer);
+  const { isCartOpened } = useAppSelector(({cartReducer}) => cartReducer);
 
   React.useEffect(() => {
     dispatch(fetchAllGoods());
@@ -21,6 +22,7 @@ function App(): ReactElement {
 
   return (
     <>
+      <OpenedCartStyles isCartOpened={isCartOpened} />
       {isCartOpened ? <OpenedCart /> : null}
       <AppWrapper>
         <Main>
