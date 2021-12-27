@@ -1,4 +1,4 @@
-import React, { ReactElement, SyntheticEvent } from "react";
+import React, { ReactElement } from "react";
 import { onCloseCart } from "../../redux/actions/cartActions";
 import { useAppDispatch } from "../../redux/hooks";
 import {
@@ -9,14 +9,14 @@ import {
 
 interface Props {}
 
-function OpenedCart({}: Props): ReactElement {
+function OpenedCart({ }: Props): ReactElement {
+  
   const refPopup = React.useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 
   const popupHideClick = (e: MouseEvent|TouchEvent) => {
     const path = e.composedPath();
     if (!path.includes(refPopup.current as EventTarget)) {
-      console.log(e);
       dispatch(onCloseCart);
     }
   };

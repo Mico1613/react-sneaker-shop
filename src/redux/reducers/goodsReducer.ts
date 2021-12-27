@@ -1,8 +1,8 @@
-import { IGoodsData } from "../../types";
+import { ISneaker } from "../../types";
 import { ActionsGoods } from "../../types/goodsActionsTypes";
 
 interface IGoods {
-  goods: IGoodsData[];
+  goods: ISneaker[];
   isLoading: boolean;
   errorMessage: string;
 }

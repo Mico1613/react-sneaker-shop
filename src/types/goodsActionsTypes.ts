@@ -1,8 +1,8 @@
-import { IGoodsData } from ".";
+import { ISneaker } from ".";
 
 interface IActionGetData {
   type: "GET_DATA";
-  payload: IGoodsData[];
+  payload: ISneaker[];
 }
 interface IActionGoodsOnLoading {
   type: "ON_LOADING";

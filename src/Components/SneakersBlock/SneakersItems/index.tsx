@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { useAppSelector } from "../../../redux/hooks";
 import Flex from "../../../StyledComponents/Flex";
-import { IGoodsData } from "../../../types";
+import { ISneaker } from "../../../types";
 import CustomContentLoader from "../../ContentLoader";
 import Sneaker from "../Sneaker";
 
@@ -18,7 +18,7 @@ function SneakersItems({}: Props): ReactElement {
             .map((i, index) => {
               return <CustomContentLoader key={index} />;
             })
-        : goods.map((sneakerItem: IGoodsData) => (
+        : goods.map((sneakerItem: ISneaker) => (
             <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />
           ))}
     </Flex>

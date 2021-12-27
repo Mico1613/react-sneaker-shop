@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IGoodsData } from "../../types";
+import { ISneaker } from "../../types";
 import { AppDispatch } from "../store";
 
 export const goodsOnLoading = {
@@ -14,7 +14,7 @@ export const goodsLoadingBreakWithError = (payload: string) => ({
   payload,
 });
 
-export const getData = (payload: IGoodsData[]) => ({
+export const getData = (payload: ISneaker[]) => ({
   type: "GET_DATA",
   payload,
 });
@@ -22,10 +22,13 @@ export const getData = (payload: IGoodsData[]) => ({
 export const fetchAllGoods = () => async (dispatch: AppDispatch) => {
   try {
     dispatch(goodsOnLoading);
-    const response = await axios.get<IGoodsData[]>(
+    const response = await axios.get<ISneaker[]>(
       "https://61606764faa03600179fba4e.mockapi.io/sneakers"
     );
-    dispatch(getData(response.data));
+    const transformedData = response.data.map((i) => {
+      return { ...i, liked: false, added: false };
+    });
+    dispatch(getData(transformedData));
     dispatch(goodsLoaded);
   } catch (error) {
     dispatch(goodsLoadingBreakWithError((error as Error).message));

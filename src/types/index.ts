@@ -1,4 +1,4 @@
-export interface IGoodsData {
+export interface ISneaker {
   id: number;
   title: string;
   price: number;

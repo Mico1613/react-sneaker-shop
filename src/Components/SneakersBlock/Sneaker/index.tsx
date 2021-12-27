@@ -1,20 +1,46 @@
 import React, { ReactElement } from "react";
 import Flex from "../../../StyledComponents/Flex";
 import Text from "../../../StyledComponents/Text";
-import { IGoodsData } from "../../../types";
+import { ISneaker } from "../../../types";
 import likedImg from "../../../assets/liked.png";
 import notLikedImg from "../../../assets/not_liked.png";
 import addedImg from "../../../assets/added.png";
 import notAddedImg from "../../../assets/not_added.png";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { addToFavourites, removeFromFavourites } from "../../../redux/actions/favouritesActions";
 
 interface Props {
-  sneakerItem: IGoodsData;
+  sneakerItem: ISneaker;
 }
 
 function Sneaker({ sneakerItem }: Props): ReactElement {
-  const { title, price, imageUrl } = sneakerItem;
+  const { title, price, imageUrl, id } = sneakerItem;
+
+  // Поменять отслеживание локального стейта на глобальный,
+  // вынести функцию куда-нибудь
   const [liked, setLiked] = React.useState(false);
   const [added, setAdded] = React.useState(false);
+  
+
+  const { goods } = useAppSelector((state) => state.goodsReducer);
+  const { favouritesItems } = useAppSelector(
+    (state) => state.favouritesReducer
+  );
+
+  const dispatch = useAppDispatch();
+
+  console.log(favouritesItems);
+
+  const addSneakerToFavourites = (id: number) => {
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        !liked
+          ? dispatch(addToFavourites(i))
+          : dispatch(removeFromFavourites(i));
+      }
+      setLiked(!liked);
+    });
+  };
 
   return (
     <Flex
@@ -32,7 +58,7 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
         justify="center"
         align="center"
         cursor="pointer"
-        onClick={() => setLiked(!liked)}
+        onClick={() => addSneakerToFavourites(id)}
       >
         <img src={liked ? likedImg : notLikedImg} alt="#" />
       </Flex>
