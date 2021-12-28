@@ -11,9 +11,18 @@ const initialState: IFavourites = {
 export default (state = initialState, { type, payload }: any): IFavourites => {
   switch (type) {
     case "ADD_TO_FAVOURITES":
-      return { ...state, favouritesItems: [...state.favouritesItems, payload] };
-    case 'REMOVE_FROM_FAVOURITES':
-      return {...state}
+      if (!state.favouritesItems.includes(payload)) {
+        return {
+          ...state,
+          favouritesItems: [...state.favouritesItems, payload],
+        };
+      }
+      return { ...state };
+    case "REMOVE_FROM_FAVOURITES":
+      const filteredArr = state.favouritesItems.filter(
+        (i) => i.id !== payload.id
+      );
+      return { ...state, favouritesItems: filteredArr };
     default:
       return state;
   }

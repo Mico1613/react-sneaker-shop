@@ -36,7 +36,7 @@ function FavouritesPage({}: Props): ReactElement {
               Мои закладки
             </Text>
           </Flex>
-          <Flex wrap="wrap" justify="space-between" rowGap="40">
+          <Flex wrap="wrap" align="center" gap="40">
             {favouritesItems.map((sneakerItem) => {
               return <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />;
             })}

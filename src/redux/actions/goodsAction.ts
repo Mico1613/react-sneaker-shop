@@ -34,3 +34,8 @@ export const fetchAllGoods = () => async (dispatch: AppDispatch) => {
     dispatch(goodsLoadingBreakWithError((error as Error).message));
   }
 };
+
+export const toggleLikedState = (liked: boolean) => ({
+  type: "TOGGLE_LIKED_STATE",
+  payload: !liked,
+});
