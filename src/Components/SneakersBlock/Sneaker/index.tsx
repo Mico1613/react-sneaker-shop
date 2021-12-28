@@ -7,7 +7,14 @@ import notLikedImg from "../../../assets/not_liked.png";
 import addedImg from "../../../assets/added.png";
 import notAddedImg from "../../../assets/not_added.png";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { addToFavourites, removeFromFavourites } from "../../../redux/actions/favouritesActions";
+import {
+  addToFavourites,
+  removeFromFavourites,
+} from "../../../redux/actions/favouritesActions";
+import {
+  toggleAddedState,
+  toggleLikedState,
+} from "../../../redux/actions/goodsAction";
 
 interface Props {
   sneakerItem: ISneaker;
@@ -16,29 +23,55 @@ interface Props {
 function Sneaker({ sneakerItem }: Props): ReactElement {
   const { title, price, imageUrl, id } = sneakerItem;
 
-  // Поменять отслеживание локального стейта на глобальный,
-  // вынести функцию куда-нибудь
-  const [liked, setLiked] = React.useState(false);
-  const [added, setAdded] = React.useState(false);
-  
+  // Деструктуризировать компонент, а то это пиздец
 
   const { goods } = useAppSelector((state) => state.goodsReducer);
-  const { favouritesItems } = useAppSelector(
-    (state) => state.favouritesReducer
-  );
-
   const dispatch = useAppDispatch();
 
-  console.log(favouritesItems);
-
-  const addSneakerToFavourites = (id: number) => {
+  const addOrRemoveSneakerToFromFavourites = (id: number) => {
     goods.forEach((i: ISneaker) => {
       if (i.id === id) {
-        !liked
+        !i.liked
           ? dispatch(addToFavourites(i))
           : dispatch(removeFromFavourites(i));
       }
-      setLiked(!liked);
+    });
+    changeLikedState(id);
+  };
+
+  const isLiked = (id: number) => {
+    let likedState;
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        likedState = i.liked;
+      }
+    });
+    return likedState;
+  };
+
+  const isAdded = (id: number) => {
+    let addedState;
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        addedState = i.added;
+      }
+    });
+    return addedState;
+  };
+
+  const changeLikedState = (id: number) => {
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        dispatch(toggleLikedState(i));
+      }
+    });
+  };
+
+  const changeAddedState = (id: number) => {
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        dispatch(toggleAddedState(i));
+      }
     });
   };
 
@@ -58,9 +91,9 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
         justify="center"
         align="center"
         cursor="pointer"
-        onClick={() => addSneakerToFavourites(id)}
+        onClick={() => addOrRemoveSneakerToFromFavourites(id)}
       >
-        <img src={liked ? likedImg : notLikedImg} alt="#" />
+        <img src={isLiked(id) ? likedImg : notLikedImg} alt="#" />
       </Flex>
       <Flex mb={15}>
         <img width="130px" height="110px" src={imageUrl} alt="#" />
@@ -86,10 +119,14 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
           </Text>
         </Flex>
         <Flex>
-          <button onClick={() => setAdded(!added)}>
+          <button
+            onClick={() => {
+              changeAddedState(id);
+            }}
+          >
             <img
               style={{ verticalAlign: "bottom" }}
-              src={added ? addedImg : notAddedImg}
+              src={isAdded(id) ? addedImg : notAddedImg}
               alt="#"
             />
           </button>

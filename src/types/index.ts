@@ -3,5 +3,6 @@ export interface ISneaker {
   title: string;
   price: number;
   imageUrl: string;
+  liked: boolean;
+  added: boolean;
 }
-

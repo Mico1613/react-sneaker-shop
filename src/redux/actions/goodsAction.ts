@@ -35,7 +35,11 @@ export const fetchAllGoods = () => async (dispatch: AppDispatch) => {
   }
 };
 
-export const toggleLikedState = (liked: boolean) => ({
+export const toggleLikedState = (payload: ISneaker) => ({
   type: "TOGGLE_LIKED_STATE",
-  payload: !liked,
+  payload,
+});
+export const toggleAddedState = (payload: ISneaker) => ({
+  type: "TOGGLE_ADDED_STATE",
+  payload,
 });

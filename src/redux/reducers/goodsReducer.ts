@@ -23,6 +23,20 @@ export default (state = initialState, action: ActionsGoods): IGoods => {
       return { ...state, isLoading: false };
     case "ON_ERROR":
       return { ...state, errorMessage: action.payload };
+    case "TOGGLE_LIKED_STATE":
+      const transformedByLikedStateToggleArray = state.goods.map((i) => {
+        if (i.id === action.payload.id) {
+          return { ...i, liked: !i.liked };
+        } else return i;
+      });
+      return { ...state, goods: transformedByLikedStateToggleArray };
+    case "TOGGLE_ADDED_STATE":
+      const transformedByAddedStateToggleArray = state.goods.map((i) => {
+        if (i.id === action.payload.id) {
+          return { ...i, added: !i.added };
+        } else return i;
+      });
+      return { ...state, goods: transformedByAddedStateToggleArray };
     default:
       return state;
   }
