@@ -5,7 +5,9 @@ import { ISneaker } from "../../../types";
 import CustomContentLoader from "../../ContentLoader";
 import Sneaker from "../Sneaker";
 
-interface Props {}
+interface Props {
+  
+}
 
 function SneakersItems({}: Props): ReactElement {
   const { goods, isLoading } = useAppSelector((state) => state.goodsReducer);

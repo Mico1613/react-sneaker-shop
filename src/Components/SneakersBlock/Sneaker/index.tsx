@@ -15,6 +15,7 @@ import {
   toggleAddedState,
   toggleLikedState,
 } from "../../../redux/actions/goodsAction";
+import { addToCart, removeFromCart } from "../../../redux/actions/cartActions";
 
 interface Props {
   sneakerItem: ISneaker;
@@ -26,9 +27,14 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
   // Деструктуризировать компонент, а то это пиздец
 
   const { goods } = useAppSelector((state) => state.goodsReducer);
+  const { cartItems } = useAppSelector((state) => state.cartReducer);
+  console.log(cartItems);
+  
+
   const dispatch = useAppDispatch();
 
   const addOrRemoveSneakerToFromFavourites = (id: number) => {
+    changeLikedState(id);
     goods.forEach((i: ISneaker) => {
       if (i.id === id) {
         !i.liked
@@ -36,9 +42,15 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
           : dispatch(removeFromFavourites(i));
       }
     });
-    changeLikedState(id);
   };
-
+  const addOrRemoveSneakerToFromCart = (id: number) => {
+    changeAddedState(id);
+    goods.forEach((i: ISneaker) => {
+      if (i.id === id) {
+        !i.added ? dispatch(addToCart(i)) : dispatch(removeFromCart(i));
+      }
+    });
+  };
   const isLiked = (id: number) => {
     let likedState;
     goods.forEach((i: ISneaker) => {
@@ -74,7 +86,6 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
       }
     });
   };
-
   return (
     <Flex
       direction="column"
@@ -121,7 +132,7 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
         <Flex>
           <button
             onClick={() => {
-              changeAddedState(id);
+              addOrRemoveSneakerToFromCart(id);
             }}
           >
             <img

@@ -18,7 +18,7 @@ function App(): ReactElement {
 
   React.useEffect(() => {
     dispatch(fetchAllGoods());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

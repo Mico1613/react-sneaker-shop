@@ -17,6 +17,7 @@ function FavouritesPage({}: Props): ReactElement {
   );
   console.log(favouritesItems);
 
+
   return (
     <>
       {true ? (

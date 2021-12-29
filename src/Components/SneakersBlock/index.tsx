@@ -6,6 +6,7 @@ import SneakersItems from "./SneakersItems";
 interface Props {}
 
 function SneakersBlock({}: Props): ReactElement {
+ 
   return (
     <>
       <SneakersHeader />

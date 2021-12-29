@@ -19,10 +19,10 @@ export default (state = initialState, { type, payload }: any): IFavourites => {
       }
       return { ...state };
     case "REMOVE_FROM_FAVOURITES":
-      const filteredArr = state.favouritesItems.filter(
+      const newArrAfterRemovingFromFavourites = state.favouritesItems.filter(
         (i) => i.id !== payload.id
       );
-      return { ...state, favouritesItems: filteredArr };
+      return { ...state, favouritesItems: newArrAfterRemovingFromFavourites };
     default:
       return state;
   }

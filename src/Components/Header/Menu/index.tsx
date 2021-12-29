@@ -16,13 +16,14 @@ function Menu(props: Props): ReactElement {
   const onOpenCartClick = () => {
     dispatch(onOpenCart);
   };
+  const { generalSum } = useAppSelector((state) => state.cartReducer);
   return (
     <Flex justify="space-between" gap="30">
       <Button onClick={onOpenCartClick}>
         <Flex align="center" gap={10}>
           <SvgCart />
           <Text color="#5C5C5C" fontWeight="600">
-            {1205} руб.
+            {generalSum} руб.
           </Text>
         </Flex>
       </Button>
