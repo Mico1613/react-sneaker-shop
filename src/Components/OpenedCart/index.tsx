@@ -7,6 +7,7 @@ import {
   StyledCartBlock,
   StyledOpenedCart,
 } from "../../StyledComponents/OpenedCartComponent";
+import Text from "../../StyledComponents/Text";
 import { ISneaker } from "../../types";
 import SneakerInCart from "../SneakersBlock/SneakerInCart";
 
@@ -35,9 +36,19 @@ function OpenedCart({}: Props): ReactElement {
       <StyledBackgroundOpenedCart />
       <div ref={refPopup}>
         <StyledCartBlock>
-          <Flex direction="column">
+          <Text
+            fontWeight="700"
+            fontSize="24px"
+            lineHeight="29px"
+            marginBottom="30"
+          >
+            Корзина
+          </Text>
+          <Flex direction="column" gap="20">
             {cartItems.map((sneakerItem: ISneaker) => {
-              return <SneakerInCart key={sneakerItem.id} sneakerItem={sneakerItem} />;
+              return (
+                <SneakerInCart key={sneakerItem.id} sneakerItem={sneakerItem} />
+              );
             })}
           </Flex>
         </StyledCartBlock>

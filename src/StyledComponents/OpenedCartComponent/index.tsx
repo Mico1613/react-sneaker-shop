@@ -19,4 +19,5 @@ export const StyledCartBlock = styled.div`
   background-color: #fff;
   width: 400px;
   height: 100%;
+  padding: 30px;
 `;
