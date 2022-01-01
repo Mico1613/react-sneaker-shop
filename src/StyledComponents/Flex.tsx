@@ -26,6 +26,8 @@ interface Props {
   right?: string;
   top?: string;
   bottom?: string;
+  flex?: string;
+  overflow?: string;
   onClick?: () => void;
 }
 
@@ -54,6 +56,8 @@ const StyledFlex = styled.div<Props>`
   right: ${({ right }) => right || "auto"};
   top: ${({ top }) => top || "auto"};
   bottom: ${({ bottom }) => bottom || "auto"};
+  flex: ${({ flex }) => flex || ""};
+  overflow: ${({ overflow }) => overflow || ""};
 `;
 
 function Flex(props: Props): ReactElement {

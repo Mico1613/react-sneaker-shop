@@ -5,6 +5,7 @@ import { AppDispatch } from "../store";
 export const goodsOnLoading = {
   type: "ON_LOADING",
 };
+
 export const goodsLoaded = {
   type: "LOADED",
 };

@@ -7,6 +7,8 @@ interface Props {
   radius?: string;
   padding?: string;
   margin?: string;
+  width?: string;
+  height?: string;
   onClick?: any;
 }
 
@@ -15,6 +17,8 @@ const StyledButton = styled.button<Props>`
   border-radius: ${({ radius }) => radius || ""};
   padding: ${({ padding }) => padding || ""};
   margin: ${({ margin }) => margin || ""};
+  width: ${({ width }) => width || ""};
+  height: ${({ height }) => height || ""};
 `;
 
 function Button(props: Props): ReactElement {
