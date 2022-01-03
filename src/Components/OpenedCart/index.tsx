@@ -10,6 +10,7 @@ import {
 import Text from "../../StyledComponents/Text";
 import { ISneaker } from "../../types";
 import CartFooter from "./CartFooter";
+import EmptyCart from "./EmptyCart";
 import SneakerInCart from "./SneakerInCart";
 
 interface Props {}
@@ -45,21 +46,32 @@ function OpenedCart({}: Props): ReactElement {
           >
             Корзина
           </Text>
-          <Flex
-            direction="column"
-            gap="20"
-            flex="1"
-            height="70%"
-            overflow="auto"
-            mb="60"
-          >
-            {cartItems.map((sneakerItem: ISneaker) => {
-              return (
-                <SneakerInCart key={sneakerItem.id} sneakerItem={sneakerItem} />
-              );
-            })}
-          </Flex>
-          <CartFooter />
+          {false ? (
+            <Flex align="center" justify="center" height="100%">
+              <EmptyCart />
+            </Flex>
+          ) : (
+            <>
+              <Flex
+                direction="column"
+                gap="20"
+                flex="1"
+                height="70%"
+                overflow="auto"
+                mb="60"
+              >
+                {cartItems.map((sneakerItem: ISneaker) => {
+                  return (
+                    <SneakerInCart
+                      key={sneakerItem.id}
+                      sneakerItem={sneakerItem}
+                    />
+                  );
+                })}
+              </Flex>
+              <CartFooter />
+            </>
+          )}
         </StyledCartBlock>
       </div>
     </StyledOpenedCart>

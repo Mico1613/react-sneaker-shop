@@ -13,7 +13,6 @@ const initialState: ICart = {
   generalSum: 0,
 };
 
-
 export default (state = initialState, action: ActionsCart): ICart => {
   switch (action.type) {
     case "ON_OPEN_CART":
@@ -22,9 +21,11 @@ export default (state = initialState, action: ActionsCart): ICart => {
       return { ...state, isCartOpened: false };
     case "ADD_TO_CART":
       if (!state.cartItems.includes(action.payload)) {
+        const newSum = state.generalSum + action.payload.price;
         return {
           ...state,
           cartItems: [...state.cartItems, action.payload],
+          generalSum: newSum,
         };
       }
       return { ...state };
@@ -32,7 +33,12 @@ export default (state = initialState, action: ActionsCart): ICart => {
       const newArrAfterRemovingFromCart = state.cartItems.filter(
         (i) => i.id !== action.payload.id
       );
-      return { ...state, cartItems: newArrAfterRemovingFromCart };
+      const newSumAfterRemoving = state.generalSum - action.payload.price;
+      return {
+        ...state,
+        cartItems: newArrAfterRemovingFromCart,
+        generalSum: newSumAfterRemoving,
+      };
     default:
       return state;
   }

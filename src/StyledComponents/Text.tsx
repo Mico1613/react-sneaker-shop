@@ -15,6 +15,7 @@ interface Props {
   transform?: string;
   usn?: boolean;
   opacity?: number;
+  tac?: boolean;
 }
 
 const StyledText = styled.p<Props>`
@@ -32,6 +33,7 @@ const StyledText = styled.p<Props>`
     (marginBottom && marginBottom + "px") || ""};
   user-select: ${({ usn }) => usn && "none"};
   opacity: ${({ opacity }) => opacity || 1};
+  text-align: ${({ tac }) => tac && "center"};
 `;
 
 function Text(props: Props): ReactElement {

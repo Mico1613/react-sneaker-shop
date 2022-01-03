@@ -15,12 +15,10 @@ function FavouritesPage({}: Props): ReactElement {
   const { favouritesItems } = useAppSelector(
     (state) => state.favouritesReducer
   );
-  console.log(favouritesItems);
-
 
   return (
     <>
-      {true ? (
+      {favouritesItems.length ? (
         <Container>
           <Flex align="center" mb="40">
             <button>
