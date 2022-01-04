@@ -25,7 +25,7 @@ function StoriesBlock({}: Props): ReactElement {
         <StoriesFirstLineText>Stan Smith</StoriesFirstLineText>
         <StoriesSecondLineText>Forever!</StoriesSecondLineText>
         <StoriesStyledA>
-          <Text as="span" color="#fff">
+          <Text as="span" color="#fff" fontWeight="500">
             Купить
           </Text>
         </StoriesStyledA>

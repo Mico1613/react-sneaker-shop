@@ -46,7 +46,7 @@ function OpenedCart({}: Props): ReactElement {
           >
             Корзина
           </Text>
-          {false ? (
+          {!cartItems.length ? (
             <Flex align="center" justify="center" height="100%">
               <EmptyCart />
             </Flex>

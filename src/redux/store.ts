@@ -1,13 +1,20 @@
-import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
-import goodsReducer from './reducers/goodsReducer'
-import cartReducer from './reducers/cartReducer'
-import favouritesReducer from './reducers/favouritesReducer'
+import {
+  configureStore,
+  ThunkAction,
+  Action,
+  combineReducers,
+} from "@reduxjs/toolkit";
+import goodsReducer from "./reducers/goodsReducer";
+import cartReducer from "./reducers/cartReducer";
+import favouritesReducer from "./reducers/favouritesReducer";
+import purchasesReducer from "./reducers/purchasesReducer";
 
 const rootReducer = combineReducers({
   goodsReducer,
   cartReducer,
-  favouritesReducer
-})
+  favouritesReducer,
+  purchasesReducer,
+});
 
 export const store = configureStore({
   reducer: rootReducer,

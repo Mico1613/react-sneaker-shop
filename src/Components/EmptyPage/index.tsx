@@ -45,7 +45,7 @@ function EmptyPage({ subtext, suptext, imgUrl }: Props): ReactElement {
               <img src={arrow} alt="#" />
               <Text
                 fontSize="16px"
-                fontWeight="600"
+                fontWeight="500"
                 lineHeight="20"
                 color="white"
                 marginLeft="15"
