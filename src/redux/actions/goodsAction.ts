@@ -44,3 +44,6 @@ export const toggleAddedState = (payload: ISneaker) => ({
   type: "TOGGLE_ADDED_STATE",
   payload,
 });
+export const onResetAddedState = {
+  type: "ON_RESET_ADDED_STATE",
+}

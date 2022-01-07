@@ -37,6 +37,11 @@ export default (state = initialState, action: ActionsGoods): IGoods => {
         } else return i;
       });
       return { ...state, goods: transformedByAddedStateToggleArray };
+    case "ON_RESET_ADDED_STATE":
+      const resettedAddedArr = state.goods.map((i) => {
+        return { ...i, added: false };
+      });
+      return { ...state, goods: resettedAddedArr };
     default:
       return state;
   }

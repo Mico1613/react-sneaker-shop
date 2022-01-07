@@ -17,3 +17,7 @@ export const removeFromCart = (item: ISneaker) => ({
   type: "REMOVE_FROM_CART",
   payload: item,
 });
+
+export const onResetCart = {
+  type: "ON_RESET_CART",
+}

@@ -10,8 +10,10 @@ import {
 import Text from "../../StyledComponents/Text";
 import { ISneaker } from "../../types";
 import CartFooter from "./CartFooter";
-import EmptyCart from "./EmptyCart";
+import CartLayout from "./CartLayout";
 import SneakerInCart from "./SneakerInCart";
+import emptyCart from "../../assets/empty-cart.png";
+import checklist from "../../assets/checklist.png";
 
 interface Props {}
 
@@ -25,7 +27,9 @@ function OpenedCart({}: Props): ReactElement {
       dispatch(onCloseCart);
     }
   };
-  const { cartItems } = useAppSelector((state) => state.cartReducer);
+  const { cartItems, isOrderProcessed } = useAppSelector(
+    (state) => state.cartReducer
+  );
   React.useEffect(() => {
     document.addEventListener("click", popupHideClick);
     return () => {
@@ -46,9 +50,23 @@ function OpenedCart({}: Props): ReactElement {
           >
             Корзина
           </Text>
-          {!cartItems.length ? (
+          {isOrderProcessed ? (
             <Flex align="center" justify="center" height="100%">
-              <EmptyCart />
+              <CartLayout
+                suptext="Заказ оформлен!"
+                subtext="Ваш заказ скоро будет передан курьерской доставке"
+                imgUrl={checklist}
+                green
+              />
+            </Flex>
+          ) : null}
+          {!cartItems.length && !isOrderProcessed ? (
+            <Flex align="center" justify="center" height="100%">
+              <CartLayout
+                suptext="Корзина пустая"
+                subtext="Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."
+                imgUrl={emptyCart}
+              />
             </Flex>
           ) : (
             <>

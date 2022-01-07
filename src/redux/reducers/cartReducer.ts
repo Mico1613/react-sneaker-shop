@@ -5,12 +5,14 @@ interface ICart {
   cartItems: ISneaker[];
   isCartOpened: boolean;
   generalSum: number;
+  isOrderProcessed: boolean;
 }
 
 const initialState: ICart = {
   isCartOpened: false,
   cartItems: [],
   generalSum: 0,
+  isOrderProcessed: false,
 };
 
 export default (state = initialState, action: ActionsCart): ICart => {
@@ -18,7 +20,7 @@ export default (state = initialState, action: ActionsCart): ICart => {
     case "ON_OPEN_CART":
       return { ...state, isCartOpened: true };
     case "ON_CLOSE_CART":
-      return { ...state, isCartOpened: false };
+      return { ...state, isCartOpened: false, isOrderProcessed: false };
     case "ADD_TO_CART":
       if (!state.cartItems.includes(action.payload)) {
         const newSum = state.generalSum + action.payload.price;
@@ -39,6 +41,8 @@ export default (state = initialState, action: ActionsCart): ICart => {
         cartItems: newArrAfterRemovingFromCart,
         generalSum: newSumAfterRemoving,
       };
+    case "ON_RESET_CART":
+      return { ...state, cartItems: [], generalSum: 0, isOrderProcessed: true };
     default:
       return state;
   }

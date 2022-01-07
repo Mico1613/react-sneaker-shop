@@ -22,10 +22,14 @@ interface IActionToggleAddedState {
   type: "TOGGLE_ADDED_STATE",
   payload: ISneaker
 }
+interface IActionOnResetAddedState {
+  type: "ON_RESET_ADDED_STATE",
+}
 export type ActionsGoods =
   | IActionGetData
   | IActionGoodsOnLoading
   | IActionGoodsLoaded
   | IActionGoodsLoadingBreakWithError
   | IActionToggleLikedState
-  | IActionToggleAddedState;
+  | IActionToggleAddedState
+  | IActionOnResetAddedState;

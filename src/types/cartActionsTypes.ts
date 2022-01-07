@@ -15,8 +15,12 @@ interface IActionRemoveFromCart {
   type: "REMOVE_FROM_CART";
   payload: ISneaker;
 }
+interface IActionOnResetCart {
+  type: "ON_RESET_CART";
+}
 export type ActionsCart =
   | IActionOnOpenCart
   | IActionOnCloseCart
   | IActionAddToCart
-  | IActionRemoveFromCart;
+  | IActionRemoveFromCart
+  | IActionOnResetCart;

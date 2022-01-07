@@ -15,9 +15,7 @@ export default (state = initialState, action: ActionsPurchases): IPurchases => {
       const filteredByUniqueSneakersArr = (): ISneaker[] => {
         let newArr: ISneaker[] = [];
         action.payload.forEach((i: ISneaker) => {
-          if (
-            !JSON.stringify(state.purchasesData).includes(JSON.stringify(i))
-          ) {
+          if (!JSON.stringify(state.purchasesData).includes(`{"id":${i.id},`)) {
             newArr.push(i);
           }
         });

@@ -6,6 +6,8 @@ import Flex from "../../../StyledComponents/Flex";
 import Text from "../../../StyledComponents/Text";
 import arrow from "../../../assets/arrow.png";
 import { addToPurchases } from "../../../redux/actions/purchasesActions";
+import { onResetCart } from "../../../redux/actions/cartActions";
+import { onResetAddedState } from "../../../redux/actions/goodsAction";
 interface Props {}
 const StyledDashedBlock = styled.div`
   flex: 1;
@@ -24,7 +26,11 @@ function CartFooter({}: Props): ReactElement {
   const dispatch = useAppDispatch();
   const addSneakersToPurchasesList = () => {
     dispatch(addToPurchases(cartItems));
+    dispatch(onResetCart);
+    dispatch(onResetAddedState)
   };
+
+ 
 
   return (
     <Flex direction="column">
