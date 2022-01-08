@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import styled from "styled-components";
 import { useAppSelector } from "../../redux/hooks";
 import Flex from "../../StyledComponents/Flex";
 import Text from "../../StyledComponents/Text";
@@ -9,29 +10,53 @@ import Sneaker from "./Sneaker";
 
 interface Props {}
 
-function SneakersBlock({}: Props): ReactElement {
-  const { goods, isLoading } = useAppSelector((state) => state.goodsReducer);
+const StyledSneakersBlockWrapper = styled.div`
+  min-height: 800px;
+`;
+
+const SneakersBlock = React.memo(({}: Props): ReactElement => {
+  const { isLoading, goods } = useAppSelector((state) => state.goodsReducer);
+
+  const [filteredValue, setFilteredValue] = React.useState<ISneaker[]>([]);
+
+  React.useEffect(() => {
+    if (!isLoading) {
+      setFilteredValue(goods);
+    }
+  }, [isLoading]);
+
+  const handleInput = (text: string) => {
+    let data = [...goods];
+    data = goods.filter((i) =>
+      JSON.stringify(i.title)
+        .toLocaleLowerCase()
+        .includes(text.toLocaleLowerCase().trim())
+    );
+    setFilteredValue(data);
+  };
+
   return (
-    <>
+    <StyledSneakersBlockWrapper>
       <Flex justify="space-between" align="center" mb="40">
         <Text fontWeight="bold" fontSize="32px" lineHeight="39px">
           Все кроссовки
         </Text>
-        <Search />
+        <Search handleInput={handleInput} />
       </Flex>
-      <Flex wrap="wrap" justify="space-between" rowGap="40">
+
+      <Flex wrap="wrap" gap="40">
         {isLoading
           ? Array(12)
               .fill(1)
-              .map((i, index) => {
+              .map((item, index) => {
                 return <CustomContentLoader key={index} />;
               })
-          : goods.map((sneakerItem: ISneaker) => (
+          : filteredValue.map((sneakerItem: ISneaker) => (
               <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />
             ))}
       </Flex>
-    </>
+    </StyledSneakersBlockWrapper>
   );
-}
+});
 
 export default SneakersBlock;

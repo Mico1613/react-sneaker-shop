@@ -14,7 +14,7 @@ import { OpenedCartStyles } from "./utils/openedCartStyles";
 
 function App(): ReactElement {
   const dispatch = useAppDispatch();
-  const { isCartOpened } = useAppSelector(({cartReducer}) => cartReducer);
+  const { isCartOpened } = useAppSelector(({ cartReducer }) => cartReducer);
 
   React.useEffect(() => {
     dispatch(fetchAllGoods());

@@ -27,8 +27,6 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
   // Деструктуризировать компонент, а то это пиздец
 
   const { goods } = useAppSelector((state) => state.goodsReducer);
-  const { cartItems } = useAppSelector((state) => state.cartReducer);
-  console.log(cartItems);
   
 
   const dispatch = useAppDispatch();
@@ -86,6 +84,7 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
       }
     });
   };
+
   return (
     <Flex
       direction="column"

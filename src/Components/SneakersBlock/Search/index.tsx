@@ -3,10 +3,18 @@ import Flex from "../../../StyledComponents/Flex";
 import InputSearch from "../../../StyledComponents/InputSearch";
 import SvgSearch from "../../../StyledComponents/SvgIcons/SvgSearch";
 
-interface Props {}
+interface Props {
+  handleInput: (text: string) => void;
+}
 
-function Search({}: Props): ReactElement {
+function Search({ handleInput }: Props): ReactElement {
   const ref = React.useRef<HTMLInputElement>(null);
+
+  const [state, setstate] = React.useState("");
+
+  React.useEffect(() => {
+    handleInput(state);
+  }, [state]);
 
   return (
     <Flex
@@ -17,7 +25,12 @@ function Search({}: Props): ReactElement {
       onClick={() => (ref.current as HTMLInputElement).focus()}
     >
       <SvgSearch />
-      <InputSearch ref={ref} />
+      <InputSearch
+        ref={ref}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setstate(e.target.value)
+        }
+      />
     </Flex>
   );
 }

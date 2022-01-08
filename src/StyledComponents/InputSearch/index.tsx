@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 interface Props {
   ref?: any;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const StyledInput = styled.input.attrs({
@@ -18,12 +19,14 @@ const StyledInput = styled.input.attrs({
   }
 `;
 
-const InputSearch = React.forwardRef(({}: Props, ref: any): ReactElement => {
-  return (
-    <>
-      <StyledInput ref={ref} />
-    </>
-  );
-});
+const InputSearch = React.forwardRef(
+  ({ onChange }: Props, ref: any): ReactElement => {
+    return (
+      <>
+        <StyledInput ref={ref} onChange={onChange} />
+      </>
+    );
+  }
+);
 
 export default InputSearch;
