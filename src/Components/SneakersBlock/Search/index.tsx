@@ -7,32 +7,31 @@ interface Props {
   handleInput: (text: string) => void;
 }
 
-function Search({ handleInput }: Props): ReactElement {
-  const ref = React.useRef<HTMLInputElement>(null);
-
-  const [state, setstate] = React.useState("");
+const Search = React.memo(({ handleInput }: Props): ReactElement => {
+  const [inputValue, setInputValue] = React.useState("");
 
   React.useEffect(() => {
-    handleInput(state);
-  }, [state]);
+    handleInput(inputValue);
+  }, [inputValue]);
 
+  const [inputTrigger, setInputTrigger] = React.useState(0);
   return (
     <Flex
       border="1px solid #F3F3F3"
       radius="10px"
       padding="15px"
       cursor="text"
-      onClick={() => (ref.current as HTMLInputElement).focus()}
+      onClick={() => setInputTrigger((inputTrigger) => inputTrigger + 1)}
     >
       <SvgSearch />
       <InputSearch
-        ref={ref}
+        inputTrigger={inputTrigger}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setstate(e.target.value)
+          setInputValue(e.target.value)
         }
       />
     </Flex>
   );
-}
+});
 
 export default Search;

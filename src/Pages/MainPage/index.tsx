@@ -1,13 +1,10 @@
 import React, { ReactElement } from "react";
-import OpenedCart from "../../Components/OpenedCart";
 import SneakersBlock from "../../Components/SneakersBlock";
 import StoriesBlock from "../../Components/StoriesBlock";
-import { useAppSelector } from "../../redux/hooks";
 import Container from "../../StyledComponents/Container";
 
-interface Props {}
+function MainPage(): ReactElement {
 
-function MainPage({}: Props): ReactElement {
   return (
     <>
       <Container>

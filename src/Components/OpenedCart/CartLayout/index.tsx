@@ -23,10 +23,13 @@ const StyledArrow = styled.img.attrs({
   margin-right: 25px;
 `;
 function CartLayout({ suptext, subtext, imgUrl, green }: Props): ReactElement {
+
   const dispatch = useAppDispatch();
+
   const closeCart = () => {
     dispatch(onCloseCart);
   };
+  
   return (
     <Flex direction="column" align="center" justify="center" mt="-100">
       <img src={imgUrl} alt="#" width="120px" height="120px" />

@@ -1,9 +1,9 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, Ref } from "react";
 import styled from "styled-components";
 
 interface Props {
-  ref?: any;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputTrigger: number;
 }
 
 const StyledInput = styled.input.attrs({
@@ -18,15 +18,14 @@ const StyledInput = styled.input.attrs({
     color: #c4c4c4;
   }
 `;
+const InputSearch = ({ onChange, inputTrigger }: Props): ReactElement => {
+  const inputRef = React.useRef<HTMLInputElement | null>(null);
+  React.useEffect(() => {
+    if (inputTrigger && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [inputTrigger]);
 
-const InputSearch = React.forwardRef(
-  ({ onChange }: Props, ref: any): ReactElement => {
-    return (
-      <>
-        <StyledInput ref={ref} onChange={onChange} />
-      </>
-    );
-  }
-);
-
+  return <StyledInput ref={inputRef} onChange={onChange} />;
+};
 export default InputSearch;

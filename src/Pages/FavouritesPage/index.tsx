@@ -10,9 +10,7 @@ import { Link } from "react-router-dom";
 import Sneaker from "../../Components/SneakersBlock/Sneaker";
 import { ISneaker } from "../../types";
 
-interface Props {}
-
-function FavouritesPage({}: Props): ReactElement {
+function FavouritesPage(): ReactElement {
   const { favouritesItems } = useAppSelector(
     (state) => state.favouritesReducer
   );
@@ -37,7 +35,7 @@ function FavouritesPage({}: Props): ReactElement {
             </Text>
           </Flex>
           <Flex wrap="wrap" align="center" gap="40">
-            {favouritesItems.map((sneakerItem:ISneaker) => {
+            {favouritesItems.map((sneakerItem: ISneaker) => {
               return <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />;
             })}
           </Flex>

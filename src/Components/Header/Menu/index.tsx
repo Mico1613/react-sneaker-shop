@@ -9,14 +9,17 @@ import Button from "../../../StyledComponents/Button";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { onOpenCart } from "../../../redux/actions/cartActions";
 
-interface Props {}
 
-function Menu(props: Props): ReactElement {
+function Menu(): ReactElement {
+
   const dispatch = useAppDispatch();
+  
   const onOpenCartClick = () => {
     dispatch(onOpenCart);
   };
+
   const { generalSum } = useAppSelector((state) => state.cartReducer);
+
   return (
     <Flex justify="space-between" gap="30">
       <Button onClick={onOpenCartClick}>

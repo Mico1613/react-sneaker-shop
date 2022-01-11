@@ -10,10 +10,9 @@ import { useAppSelector } from "../../redux/hooks";
 import { ISneaker } from "../../types";
 import Sneaker from "../../Components/SneakersBlock/Sneaker";
 
-interface Props {}
-
-function PurchasesPage({}: Props): ReactElement {
+function PurchasesPage(): ReactElement {
   const { purchasesData } = useAppSelector((state) => state.purchasesReducer);
+
   return (
     <>
       {purchasesData.length ? (

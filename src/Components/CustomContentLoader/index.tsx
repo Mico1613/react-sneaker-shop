@@ -2,7 +2,6 @@ import React, { ReactElement } from "react";
 import ContentLoader from "react-content-loader";
 import styled from "styled-components";
 
-interface Props {}
 
 const ContentLoaderWrapper = styled.div`
   padding: 36px 29px 35px 29px;
@@ -10,7 +9,7 @@ const ContentLoaderWrapper = styled.div`
   border-radius: 40px;
 `;
 
-function CustomContentLoader(props: Props): ReactElement {
+function CustomContentLoader(): ReactElement {
   return (
     <ContentLoaderWrapper>
       <ContentLoader
@@ -20,7 +19,6 @@ function CustomContentLoader(props: Props): ReactElement {
         viewBox="0 0 150 188"
         backgroundColor="#f8f6f6"
         foregroundColor="#f0faff"
-        {...props}
       >
         <rect x="0" y="0" rx="10" ry="10" width="150" height="91" />
         <rect x="0" y="107" rx="3" ry="3" width="150" height="15" />

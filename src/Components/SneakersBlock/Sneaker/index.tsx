@@ -21,13 +21,10 @@ interface Props {
   sneakerItem: ISneaker;
 }
 
-function Sneaker({ sneakerItem }: Props): ReactElement {
+const Sneaker = React.memo(({ sneakerItem }: Props): ReactElement => {
   const { title, price, imageUrl, id } = sneakerItem;
 
-  // Деструктуризировать компонент, а то это пиздец
-
   const { goods } = useAppSelector((state) => state.goodsReducer);
-  
 
   const dispatch = useAppDispatch();
 
@@ -106,7 +103,13 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
         <img src={isLiked(id) ? likedImg : notLikedImg} alt="#" />
       </Flex>
       <Flex mb={15}>
-        <img width="130px" height="110px" src={imageUrl} alt="#" />
+        <img
+          width="130px"
+          height="110px"
+          src={imageUrl}
+          alt="#"
+          style={{ userSelect: "none" }}
+        />
       </Flex>
 
       <Text marginBottom={15} lineHeight={16.94}>
@@ -144,6 +147,6 @@ function Sneaker({ sneakerItem }: Props): ReactElement {
       </Flex>
     </Flex>
   );
-}
+});
 
 export default Sneaker;

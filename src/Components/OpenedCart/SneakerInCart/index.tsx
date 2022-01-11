@@ -23,8 +23,10 @@ const StyledFlexWithHover = styled(Flex)`
 `;
 
 function SneakerInCart({ sneakerItem }: Props): ReactElement {
-  const { title, price, imageUrl, id } = sneakerItem;
+  const { title, price, imageUrl } = sneakerItem;
+
   const dispatch = useAppDispatch();
+  
   const onRemoveFromCart = (item: ISneaker) => {
     dispatch(toggleAddedState(item));
     dispatch(removeFromCart(item));

@@ -53,7 +53,7 @@ function EmptyPage({ subtext, suptext, imgUrl }: Props): ReactElement {
                 Вернуться назад
               </Text>
             </Flex>
-          </Button>{" "}
+          </Button>
         </Link>
       </Flex>
     </Flex>

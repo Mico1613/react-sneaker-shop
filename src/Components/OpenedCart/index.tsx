@@ -15,9 +15,7 @@ import SneakerInCart from "./SneakerInCart";
 import emptyCart from "../../assets/empty-cart.png";
 import checklist from "../../assets/checklist.png";
 
-interface Props {}
-
-function OpenedCart({}: Props): ReactElement {
+function OpenedCart(): ReactElement {
   const refPopup = React.useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
 

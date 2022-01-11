@@ -8,13 +8,11 @@ import CustomContentLoader from "../CustomContentLoader";
 import Search from "./Search";
 import Sneaker from "./Sneaker";
 
-interface Props {}
-
 const StyledSneakersBlockWrapper = styled.div`
   min-height: 800px;
 `;
 
-const SneakersBlock = React.memo(({}: Props): ReactElement => {
+const SneakersBlock = (): ReactElement => {
   const { isLoading, goods } = useAppSelector((state) => state.goodsReducer);
 
   const [filteredValue, setFilteredValue] = React.useState<ISneaker[]>([]);
@@ -28,9 +26,7 @@ const SneakersBlock = React.memo(({}: Props): ReactElement => {
   const handleInput = (text: string) => {
     let data = [...goods];
     data = goods.filter((i) =>
-      JSON.stringify(i.title)
-        .toLocaleLowerCase()
-        .includes(text.toLocaleLowerCase().trim())
+      i.title.toLocaleLowerCase().includes(text.toLocaleLowerCase().trim())
     );
     setFilteredValue(data);
   };
@@ -57,6 +53,6 @@ const SneakersBlock = React.memo(({}: Props): ReactElement => {
       </Flex>
     </StyledSneakersBlockWrapper>
   );
-});
+};
 
 export default SneakersBlock;

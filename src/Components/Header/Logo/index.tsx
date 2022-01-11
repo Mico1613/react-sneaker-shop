@@ -2,9 +2,9 @@ import React, { ReactElement } from "react";
 import Flex from "../../../StyledComponents/Flex";
 import Text from "../../../StyledComponents/Text";
 import LogoImage from "../../../assets/logo.png";
-interface Props {}
 
-function Logo({}: Props): ReactElement {
+
+function Logo(): ReactElement {
   return (
     <Flex align="center" justify="space-between" usn>
       <img src={LogoImage} width="40px" height="40px" alt="#logo" />

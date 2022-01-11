@@ -1,15 +1,12 @@
 import React, { ReactElement } from "react";
 import { StyledError } from "../../StyledComponents/ErrorPageComponent";
 
-interface Props {}
 
-
-
-function ErrorPage({}: Props): ReactElement {
+function ErrorPage(): ReactElement {
   return (
     <StyledError>
       404
-      <br /> Not Found :(
+      <br /> {"Not Found :("}
     </StyledError>
   );
 }

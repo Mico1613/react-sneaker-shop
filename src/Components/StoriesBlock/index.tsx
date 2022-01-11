@@ -11,9 +11,9 @@ import {
   StoriesStyledTextBlockWrapper,
 } from "../../StyledComponents/StoriesComponents";
 
-interface Props {}
 
-function StoriesBlock({}: Props): ReactElement {
+function StoriesBlock(): ReactElement {
+  
   return (
     <StoriesStyledFlex>
       <StoriesStyledTextBlockWrapper>

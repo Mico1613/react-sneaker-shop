@@ -4,7 +4,7 @@ import { StyledMain } from "../../StyledComponents/Main";
 export const StyledError = styled(StyledMain)`
   font-size: 48px;
   font-weight: bold;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 302px);
   display: flex;
   align-items: center;
   justify-content: center;
