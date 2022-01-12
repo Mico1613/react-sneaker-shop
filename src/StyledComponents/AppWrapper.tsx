@@ -13,6 +13,9 @@ const StyledAppWrapper = styled.div`
   @media screen and (max-width: 768px) {
     padding: 35px;
   }
+  @media screen and (max-width: 640px) {
+    padding: 10px;
+  }
 `;
 
 function AppWrapper({ children }: Props): ReactElement {

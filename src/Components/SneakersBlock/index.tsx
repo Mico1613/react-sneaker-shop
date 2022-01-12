@@ -11,7 +11,14 @@ import Sneaker from "./Sneaker";
 const StyledSneakersBlockWrapper = styled.div`
   min-height: 800px;
 `;
-
+const StyledFlex = styled(Flex)`
+  @media screen and (max-width: 1250px) {
+    justify-content: space-between;
+  }
+  @media screen and (max-width: 540px) {
+    justify-content: center;
+  }
+`;
 const SneakersBlock = (): ReactElement => {
   const { isLoading, goods } = useAppSelector((state) => state.goodsReducer);
 
@@ -40,7 +47,7 @@ const SneakersBlock = (): ReactElement => {
         <Search handleInput={handleInput} />
       </Flex>
 
-      <Flex wrap="wrap" gap="40">
+      <StyledFlex wrap="wrap" gap="40">
         {isLoading
           ? Array(12)
               .fill(1)
@@ -50,7 +57,7 @@ const SneakersBlock = (): ReactElement => {
           : filteredValue.map((sneakerItem: ISneaker) => (
               <Sneaker key={sneakerItem.id} sneakerItem={sneakerItem} />
             ))}
-      </Flex>
+      </StyledFlex>
     </StyledSneakersBlockWrapper>
   );
 };

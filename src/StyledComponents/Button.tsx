@@ -9,7 +9,7 @@ interface Props {
   margin?: string;
   width?: string;
   height?: string;
-  onClick?: any;
+  onClick?: (e: any) => void;
 }
 
 const StyledButton = styled.button<Props>`
@@ -22,7 +22,11 @@ const StyledButton = styled.button<Props>`
 `;
 
 function Button(props: Props): ReactElement {
-  return <StyledButton {...props} onClick={props.onClick}>{props.children}</StyledButton>;
+  return (
+    <StyledButton {...props} onClick={props.onClick}>
+      {props.children}
+    </StyledButton>
+  );
 }
 
 export default Button;
