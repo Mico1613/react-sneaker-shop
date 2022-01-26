@@ -1,15 +1,15 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, SyntheticEvent } from "react";
 import styled from "styled-components";
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode;
   bgc?: string;
   radius?: string;
   padding?: string;
   margin?: string;
   width?: string;
   height?: string;
-  onClick?: (e: any) => void;
+  onClick?: (e?: SyntheticEvent) => void;
 }
 
 const StyledButton = styled.button<Props>`

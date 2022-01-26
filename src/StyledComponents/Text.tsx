@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import styled from "styled-components";
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode;
   as?: any;
   fontSize?: string;
   fontWeight?: string;

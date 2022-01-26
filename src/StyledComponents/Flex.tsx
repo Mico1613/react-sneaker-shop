@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, SyntheticEvent } from "react";
 import styled from "styled-components";
 
 interface Props {
-  children?: any;
+  children?: React.ReactNode;
   width?: string | number;
   height?: string | number;
   direction?: string;
@@ -28,7 +28,7 @@ interface Props {
   bottom?: string;
   flex?: string;
   overflow?: string;
-  onClick?: () => void;
+  onClick?: (e?: SyntheticEvent) => void;
 }
 
 const StyledFlex = styled.div<Props>`
