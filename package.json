@@ -1,6 +1,6 @@
 {
   "name": "sneaker",
-  "version": "0.1.0",
+  "version": "16.13.1",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
