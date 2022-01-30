@@ -19,7 +19,7 @@ function App(): ReactElement {
   React.useEffect(() => {
     dispatch(fetchAllGoods());
   }, [dispatch]);
-
+  
   return (
     <>
       <OpenedCartStyles isCartOpened={isCartOpened} />

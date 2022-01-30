@@ -8,10 +8,10 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Global/>
-      <App />
-    </Router>
+      <Router>
+        <Global />
+        <App />
+      </Router>
   </Provider>,
   document.getElementById("root")
 );
